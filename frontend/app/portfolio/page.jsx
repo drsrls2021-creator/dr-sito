@@ -4,7 +4,7 @@ import PortfolioClient from './PortfolioClient'; // Importiamo il nuovo componen
 
 export const metadata = {
   title: 'Portfolio Lavori',
-  description: 'Scopri i nostri migliori lavori realizzati: finestre, porte, persiane e vetrate installate per i nostri clienti a Caserta e in Campania.',
+  description: 'Scopri i nostri migliori lavori realizzati: finestre, porte, persiane e vetrate installate per i nostri clienti in Campania.',
 };
 
 // I dati dei progetti ora vivono qui, nel Server Component
