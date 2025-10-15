@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Junior Dev: Puoi aggiungere stili globali qui, ma preferisci usare Tailwind classes quando possibile */
+body {
+  @apply bg-white text-dark;
+}
