@@ -24,42 +24,51 @@ const projectsData = [
     title: 'Scuola Frignano (CE)', 
     category: 'Finestre PVC', 
     images: [
-      '/portfolio/scuola-frignano-1.webp',
-      '/portfolio/scuola-frignano-2.webp',
+      '/scuolamedia1.webp',
+      '/scuolamedia2.webp',
+      '/scuolamedia3.webp',
+      '/scuolamedia4.webp',
+      '/scuolamedia5.webp',
+      '/scuolamedia6.webp',
+      
     ] 
   },
   { 
     id: 3, 
-    title: 'Ufficio Direzionale', 
-    category: 'Porte Interne', 
+    title: 'Portoncini blindati', 
+    category: 'Portoncini blindati', 
     images: [
-      'https://images.unsplash.com/photo-1529322359376-9f080b5c193a?q=80&w=800',
-      'https://images.unsplash.com/photo-1618221014418-6366113a023c?q=80&w=800',
+      'portoncinoblindato1.webp',
+      'portoncinoblindato2.webp',
+      'portoncinoblindato3.webp',
+      'portoncinoblindato4.webp'
+      ,
     ] 
   },
   { 
     id: 4, 
-    title: 'Restauro Storico', 
-    category: 'Persiane', 
+    title: 'Persiane di varie abitazioni', 
+    category: 'Persiane in alluminio', 
     images: [
-      'https://images.unsplash.com/photo-1617103998418-a6e4ac5a2517?q=80&w=800',
+      'persiane1.webp',
+      'persiane2.webp',
     ] 
   },
   { 
     id: 5, 
-    title: 'Attico Panoramico', 
+    title: 'Capannone Industriale Parete (CE)', 
     category: 'Vetrate', 
     images: [
-      'https://images.unsplash.com/photo-1604014237800-1c9102c219da?q=80&w=800',
-      'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=800',
-    ] 
-  },
+      '\parete1.webp',
+    ]
+  },   
   { 
     id: 6, 
-    title: 'Condominio Residenziale', 
+    title: 'Condomini Residenziali', 
     category: 'Finestre PVC', 
     images: [
-      'https://images.unsplash.com/photo-1572120360610-d971b9d7767c?q=80&w=800',
+      'variepvc1.webp',
+      
     ] 
   },
 ];
