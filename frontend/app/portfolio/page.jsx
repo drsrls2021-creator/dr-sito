@@ -7,14 +7,15 @@ export const metadata = {
   description: 'Scopri i nostri migliori lavori realizzati: finestre, porte, persiane e vetrate installate per i nostri clienti in Campania.',
 };
 
+// DATI AGGIORNATI CON I NOMI ESATTI DEI FILE
 const projectsData = [
   { 
     id: 1, 
     title: 'Santa Maria Capua Vetere', 
     category: 'Finestre PVC', 
     images: [
-      '/portfolio/santa-maria-capua-vetere-1.webp', 
-      '/portfolio/santa-maria-capua-vetere-2.webp', 
+      '/portfolio/Santa_Maria_Capuavetere.webp', // Nome esatto dall'immagine
+      '/portfolio/santamariacapuavetere2.webp',   // Nome esatto dall'immagine
     ] 
   },
   { 
@@ -22,12 +23,12 @@ const projectsData = [
     title: 'Scuola Frignano (CE)', 
     category: 'Finestre PVC', 
     images: [
-      '/portfolio/scuola-frignano-1.webp',
-      '/portfolio/scuola-frignano-2.webp',
-      '/portfolio/scuola-frignano-3.webp',
-      '/portfolio/scuola-frignano-4.webp',
-      '/portfolio/scuola-frignano-5.webp',
-      '/portfolio/scuola-frignano-6.webp',
+      '/portfolio/scuolamedia1.webp',
+      '/portfolio/scuolamedia2.webp',
+      '/portfolio/scuolamedia3.webp',
+      '/portfolio/scuolamedia4.webp',
+      '/portfolio/scuolamedia5.webp',
+      '/portfolio/scuolamedia6.webp',
     ] 
   },
   { 
@@ -35,10 +36,10 @@ const projectsData = [
     title: 'Portoncini blindati', 
     category: 'Portoncini blindati', 
     images: [
-      '/portfolio/portoncino-blindato-1.webp',
-      '/portfolio/portoncino-blindato-2.webp',
-      '/portfolio/portoncino-blindato-3.webp',
-      '/portfolio/portoncino-blindato-4.webp',
+      '/portfolio/portoncinoblindato1.webp',
+      '/portfolio/portoncinoblindato2.webp',
+      '/portfolio/portoncinoblindato3.webp',
+      '/portfolio/portoncinoblindato4.webp',
     ] 
   },
   { 
@@ -46,8 +47,8 @@ const projectsData = [
     title: 'Persiane di varie abitazioni', 
     category: 'Persiane in alluminio', 
     images: [
-      '/portfolio/persiane-1.webp',
-      '/portfolio/persiane-2.webp',
+      '/portfolio/persiane1.webp',
+      '/portfolio/persiane2.webp',
     ] 
   },
   { 
@@ -55,7 +56,7 @@ const projectsData = [
     title: 'Capannone Industriale Parete (CE)', 
     category: 'Vetrate', 
     images: [
-      '/portfolio/capannone-parete-1.webp',
+      '/portfolio/parete1.webp',
     ]
   },   
   { 
@@ -63,7 +64,7 @@ const projectsData = [
     title: 'Condomini Residenziali', 
     category: 'Finestre PVC', 
     images: [
-      '/portfolio/condominio-pvc-1.webp',
+      '/portfolio/variepvc1.webp',
     ] 
   },
 ];
