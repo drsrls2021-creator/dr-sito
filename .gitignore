@@ -12,10 +12,5 @@ backend/__pycache__
 backend/*.pyc
 backend/.env
 
-# File generati da IDE
-.vscode/
-.idea/
-
-# File di sistema operativo
+# Generali
 .DS_Store
-Thumbs.db
