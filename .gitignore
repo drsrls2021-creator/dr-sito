@@ -1,50 +1,21 @@
-# Crea il file .gitignore nella root del progetto
-echo "# Dependencies
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# Frontend (Next.js)
+frontend/node_modules
+frontend/.next
+frontend/out
+frontend/build
+frontend/.env*
+frontend/.vercel
 
-# Next.js
-.next/
-out/
-build/
+# Backend (Python/FastAPI)
+backend/venv
+backend/__pycache__
+backend/*.pyc
+backend/.env
 
-# Production
-dist/
-
-# Environment variables
-.env*
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# Logs
-logs
-*.log
-
-# Runtime data
-pids
-*.pid
-*.seed
-*.pid.lock
-
-# IDE
+# File generati da IDE
 .vscode/
 .idea/
-*.swp
-*.swo
 
-# OS
+# File di sistema operativo
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db
-
-# Temporary folders
-tmp/
-temp/" > .gitignore
