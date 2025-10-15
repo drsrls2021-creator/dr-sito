@@ -13,8 +13,8 @@ const projectsData = [
     title: 'Santa Maria Capua Vetere', 
     category: 'Finestre PVC', 
     images: [
-      '/portfolio/Santa_Maria_Capuavetere.webp', 
-      '/portfolio/santamariacapuavetere2.webp', 
+      '/portfolio/santa-maria-capua-vetere-1.webp', 
+      '/portfolio/santa-maria-capua-vetere-2.webp', 
     ] 
   },
   { 
@@ -22,12 +22,12 @@ const projectsData = [
     title: 'Scuola Frignano (CE)', 
     category: 'Finestre PVC', 
     images: [
-      '/portfolio/scuolamedia1.webp',
-      '/portfolio/scuolamedia2.webp',
-      '/portfolio/scuolamedia3.webp',
-      '/portfolio/scuolamedia4.webp',
-      '/portfolio/scuolamedia5.webp',
-      '/portfolio/scuolamedia6.webp',
+      '/portfolio/scuola-frignano-1.webp',
+      '/portfolio/scuola-frignano-2.webp',
+      '/portfolio/scuola-frignano-3.webp',
+      '/portfolio/scuola-frignano-4.webp',
+      '/portfolio/scuola-frignano-5.webp',
+      '/portfolio/scuola-frignano-6.webp',
     ] 
   },
   { 
@@ -35,11 +35,10 @@ const projectsData = [
     title: 'Portoncini blindati', 
     category: 'Portoncini blindati', 
     images: [
-      // CORREZIONE: Aggiunto /portfolio/ a tutti
-      '/portfolio/portoncinoblindato1.webp',
-      '/portfolio/portoncinoblindato2.webp',
-      '/portfolio/portoncinoblindato3.webp',
-      '/portfolio/portoncinoblindato4.webp',
+      '/portfolio/portoncino-blindato-1.webp',
+      '/portfolio/portoncino-blindato-2.webp',
+      '/portfolio/portoncino-blindato-3.webp',
+      '/portfolio/portoncino-blindato-4.webp',
     ] 
   },
   { 
@@ -47,9 +46,8 @@ const projectsData = [
     title: 'Persiane di varie abitazioni', 
     category: 'Persiane in alluminio', 
     images: [
-      // CORREZIONE: Aggiunto /portfolio/ a tutti
-      '/portfolio/persiane1.webp',
-      '/portfolio/persiane2.webp',
+      '/portfolio/persiane-1.webp',
+      '/portfolio/persiane-2.webp',
     ] 
   },
   { 
@@ -57,8 +55,7 @@ const projectsData = [
     title: 'Capannone Industriale Parete (CE)', 
     category: 'Vetrate', 
     images: [
-      // CORREZIONE: Corretto lo slash e aggiunto /portfolio/
-      '/portfolio/parete1.webp',
+      '/portfolio/capannone-parete-1.webp',
     ]
   },   
   { 
@@ -66,8 +63,7 @@ const projectsData = [
     title: 'Condomini Residenziali', 
     category: 'Finestre PVC', 
     images: [
-      // CORREZIONE: Aggiunto /portfolio/
-      '/portfolio/variepvc1.webp',
+      '/portfolio/condominio-pvc-1.webp',
     ] 
   },
 ];
