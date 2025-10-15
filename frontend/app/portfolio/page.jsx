@@ -1,22 +1,20 @@
 import PageHeader from '../../components/shared/PageHeader';
 import Container from '../../components/ui/Container';
-import PortfolioClient from './PortfolioClient'; // Importiamo il nuovo componente client
+import PortfolioClient from './PortfolioClient';
 
 export const metadata = {
   title: 'Portfolio Lavori',
   description: 'Scopri i nostri migliori lavori realizzati: finestre, porte, persiane e vetrate installate per i nostri clienti in Campania.',
 };
 
-// I dati dei progetti ora vivono qui, nel Server Component
 const projectsData = [
   { 
     id: 1, 
     title: 'Santa Maria Capua Vetere', 
     category: 'Finestre PVC', 
     images: [
-      '/Santa_Maria_Capuavetere.webp', 
-      '/santamariacapuavetere2.webp', 
-      
+      '/portfolio/Santa_Maria_Capuavetere.webp', 
+      '/portfolio/santamariacapuavetere2.webp', 
     ] 
   },
   { 
@@ -24,13 +22,12 @@ const projectsData = [
     title: 'Scuola Frignano (CE)', 
     category: 'Finestre PVC', 
     images: [
-      '/scuolamedia1.webp',
-      '/scuolamedia2.webp',
-      '/scuolamedia3.webp',
-      '/scuolamedia4.webp',
-      '/scuolamedia5.webp',
-      '/scuolamedia6.webp',
-      
+      '/portfolio/scuolamedia1.webp',
+      '/portfolio/scuolamedia2.webp',
+      '/portfolio/scuolamedia3.webp',
+      '/portfolio/scuolamedia4.webp',
+      '/portfolio/scuolamedia5.webp',
+      '/portfolio/scuolamedia6.webp',
     ] 
   },
   { 
@@ -38,11 +35,11 @@ const projectsData = [
     title: 'Portoncini blindati', 
     category: 'Portoncini blindati', 
     images: [
-      'portoncinoblindato1.webp',
-      'portoncinoblindato2.webp',
-      'portoncinoblindato3.webp',
-      'portoncinoblindato4.webp'
-      ,
+      // CORREZIONE: Aggiunto /portfolio/ a tutti
+      '/portfolio/portoncinoblindato1.webp',
+      '/portfolio/portoncinoblindato2.webp',
+      '/portfolio/portoncinoblindato3.webp',
+      '/portfolio/portoncinoblindato4.webp',
     ] 
   },
   { 
@@ -50,8 +47,9 @@ const projectsData = [
     title: 'Persiane di varie abitazioni', 
     category: 'Persiane in alluminio', 
     images: [
-      'persiane1.webp',
-      'persiane2.webp',
+      // CORREZIONE: Aggiunto /portfolio/ a tutti
+      '/portfolio/persiane1.webp',
+      '/portfolio/persiane2.webp',
     ] 
   },
   { 
@@ -59,7 +57,8 @@ const projectsData = [
     title: 'Capannone Industriale Parete (CE)', 
     category: 'Vetrate', 
     images: [
-      '\parete1.webp',
+      // CORREZIONE: Corretto lo slash e aggiunto /portfolio/
+      '/portfolio/parete1.webp',
     ]
   },   
   { 
@@ -67,8 +66,8 @@ const projectsData = [
     title: 'Condomini Residenziali', 
     category: 'Finestre PVC', 
     images: [
-      'variepvc1.webp',
-      
+      // CORREZIONE: Aggiunto /portfolio/
+      '/portfolio/variepvc1.webp',
     ] 
   },
 ];
@@ -82,7 +81,6 @@ export default function PortfolioPage() {
       />
       <section className="py-16">
         <Container>
-          {/* Passiamo i dati al componente client che gestirà i click */}
           <PortfolioClient projects={projectsData} />
         </Container>
       </section>
