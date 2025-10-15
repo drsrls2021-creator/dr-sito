@@ -1,68 +1,50 @@
-# =====================
-#  PYTHON
-# =====================
-__pycache__/
-*.py[cod]
-*$py.class
-
-# Environment / Virtual Env
-venv/
-env/
-ENV/
-.venv/
-pip-wheel-metadata/
-*.egg-info/
-*.egg
-dist/
-build/
-
-# =====================
-#  LOGS / CACHE
-# =====================
-*.log
-*.pot
-*.pyc
-*.pyo
-*.pyd
-*.tmp
-*.bak
-*.swp
-*.swo
-.cache/
-.ipynb_checkpoints/
-.mypy_cache/
-.pytest_cache/
-coverage/
-htmlcov/
-
-# =====================
-#  WEB / FRONTEND
-# =====================
+# Crea il file .gitignore nella root del progetto
+echo "# Dependencies
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-package-lock.json
+
+# Next.js
+.next/
+out/
+build/
+
+# Production
+dist/
+
+# Environment variables
+.env*
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-# =====================
-#  OS / EDITOR SPECIFIC
-# =====================
-.DS_Store
-Thumbs.db
-desktop.ini
+# Logs
+logs
+*.log
 
-# VSCode / JetBrains
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# IDE
 .vscode/
 .idea/
+*.swp
+*.swo
 
-# =====================
-#  OUTPUT STATIC FILES
-# =====================
-/media/
-/uploads/
-/staticfiles/
-/__output__/
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary folders
+tmp/
+temp/" > .gitignore

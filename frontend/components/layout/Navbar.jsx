@@ -20,16 +20,19 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50">
-      <Container className="flex items-center justify-between h-20">
-        <Link href="/" className="flex items-center gap-2">
-          <Image 
-            src="/logo2.webp"
-            alt="Logo DR srls" 
-            width={120}
-            height={40}
-            priority
-          />
+    <header className="bg-white shadow-md sticky top-0 z-50 h-24">
+      <Container className="flex items-center justify-between h-full py-2">
+        <Link href="/" className="flex items-center gap-3">
+          <div className="flex-shrink-0">
+            <Image 
+              src="/logo2.webp"
+              alt="Logo DR srls" 
+              width={140}
+              height={50}
+              priority
+              className="object-contain"
+            />
+          </div>
           <span className="text-xl font-bold text-primary">DR srls</span>
         </Link>
         
@@ -55,7 +58,7 @@ export default function Navbar() {
       </Container>
 
       {isOpen && (
-        <div className="md:hidden bg-white absolute top-20 left-0 w-full shadow-lg">
+        <div className="md:hidden bg-white absolute top-24 left-0 w-full shadow-lg">
           <nav className="flex flex-col items-center p-4 space-y-4">
             {navLinks.map((link) => (
               <Link

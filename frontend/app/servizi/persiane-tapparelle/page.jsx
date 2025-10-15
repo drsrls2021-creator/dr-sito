@@ -16,7 +16,7 @@ export default function PersianeTapparellePage() {
             <h2 className="text-2xl font-bold text-primary-dark mb-4">Soluzioni per Ogni Esigenza</h2>
             <p>
               Offriamo una vasta selezione di persiane e tapparelle, disponibili in diversi materiali come alluminio,
-              PVC e legno, per adattarsi perfettamente allo stile della tua casa e garantire la massima funzionalità.
+              PVC e acciaio, per adattarsi perfettamente allo stile della tua casa e garantire la massima funzionalità.
             </p>
             <ul>
               <li>Persiane a lamelle fisse o orientabili</li>
