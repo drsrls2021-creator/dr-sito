@@ -48,27 +48,6 @@ export default function HomePage() {
           </div>
         </Container>
       </section>
-
-      {/* Sezione Testimonianze */}
-      <section className="bg-light py-16">
-        <Container>
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-primary-dark">Dicono di Noi</h2>
-            <p className="text-gray-600 mt-2">La soddisfazione dei nostri clienti è la nostra migliore garanzia.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Junior Dev: Sostituisci questi dati con testimonianze reali */}
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <p className="text-gray-700 italic">"Lavoro impeccabile, professionalità e puntualità. Le nuove finestre hanno trasformato la casa!"</p>
-              <p className="text-right font-semibold text-primary mt-4">- Mario Rossi</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <p className="text-gray-700 italic">"La porta blindata è solida ed elegante. Finalmente ci sentiamo sicuri. Consigliatissimi."</p>
-              <p className="text-right font-semibold text-primary mt-4">- Laura Bianchi</p>
-            </div>
-          </div>
-        </Container>
-      </section>
     </>
   );
 }
