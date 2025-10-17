@@ -23,43 +23,19 @@ export default function ContattiPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Validazione lato client
-    if (!formData.name.trim()) {
-      setStatus({ type: 'error', message: 'Il nome è obbligatorio.' });
-      return;
-    }
-    
-    if (!formData.email.trim()) {
-      setStatus({ type: 'error', message: 'L\'email è obbligatoria.' });
-      return;
-    }
-    
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      setStatus({ type: 'error', message: 'Inserisci un\'email valida.' });
-      return;
-    }
-    
-    if (!formData.phone.trim()) {
-      setStatus({ type: 'error', message: 'Il numero di telefono è obbligatorio.' });
-      return;
-    }
-    
-    const phoneRegex = /^[0-9\s\+\-\(\)]{8,}$/;
-    if (!phoneRegex.test(formData.phone)) {
-      setStatus({ type: 'error', message: 'Inserisci un numero di telefono valido.' });
-      return;
-    }
-    
-    if (!formData.message.trim()) {
-      setStatus({ type: 'error', message: 'Il messaggio è obbligatorio.' });
-      return;
-    }
+    // Validazione (già corretta)
+    if (!formData.name.trim()) { setStatus({ type: 'error', message: 'Il nome è obbligatorio.' }); return; }
+    if (!formData.email.trim()) { setStatus({ type: 'error', message: 'L\'email è obbligatoria.' }); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) { setStatus({ type: 'error', message: 'Inserisci un\'email valida.' }); return; }
+    if (!formData.phone.trim()) { setStatus({ type: 'error', message: 'Il numero di telefono è obbligatorio.' }); return; }
+    if (!/^[0-9\s\+\-\(\)]{8,}$/.test(formData.phone)) { setStatus({ type: 'error', message: 'Inserisci un numero di telefono valido.' }); return; }
+    if (!formData.message.trim()) { setStatus({ type: 'error', message: 'Il messaggio è obbligatorio.' }); return; }
 
     setIsLoading(true);
 
     try {
-      const response = await fetch('/api/contatti', {
+      // --- QUESTA È LA RIGA CHE ABBIAMO CORRETTO ---
+      const response = await fetch('http://localhost:8000/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
@@ -71,10 +47,10 @@ export default function ContattiPage() {
         setStatus({ type: 'success', message: 'Messaggio inviato con successo! Ti risponderemo al più presto.' });
         setFormData({ name: '', email: '', phone: '', message: '' });
       } else {
-        setStatus({ type: 'error', message: data.error || 'Errore durante l\'invio del messaggio.' });
+        setStatus({ type: 'error', message: data.detail || 'Errore durante l\'invio del messaggio.' });
       }
     } catch (error) {
-      setStatus({ type: 'error', message: 'Errore di connessione. Riprova più tardi.' });
+      setStatus({ type: 'error', message: 'Errore di connessione. Assicurati che il server backend sia attivo.' });
     } finally {
       setIsLoading(false);
     }
