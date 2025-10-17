@@ -8,11 +8,14 @@ app = FastAPI(
     version="1.0.0"
 )
 
+# --- MODIFICA FONDAMENTALE QUI ---
+# Aggiungiamo gli URL di produzione alla lista delle origini permesse
 origins = [
-    "http://localhost:3000",
-    "https://infodrsrls.com"
-    # Aggiungi qui il tuo dominio di produzione quando sarà live
+    "http://localhost:3000",                  # Per lo sviluppo locale
+    "https://www.infodrsrls.com",             # Il tuo dominio principale
+    "https://dr-sito.onrender.com"            # Il sottodominio del frontend su Render
 ]
+
 
 app.add_middleware(
     CORSMiddleware,
