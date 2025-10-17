@@ -41,7 +41,7 @@ export default function Footer() {
             <h3 className="font-bold text-lg mb-4">Contatti</h3>
             <ul className="space-y-2 text-sm text-gray-300">
               <li>Via Consortile Savone, 1<br/>81034 Mondragone (CE)</li>
-              <li><a href="mailto:info@serramenti.it" className="hover:text-white">info@serramenti.it</a></li>
+              <li><a href="mailto:info@serramenti.it" className="hover:text-white">drsrls2021@gmail.com</a></li>
               <li><a href="tel:0823776453" className="hover:text-white">Tel. 0823.776453</a></li>
               <li><a href="tel:3938799433" className="hover:text-white">Cell. 393.8799433</a></li>
             </ul>
@@ -57,7 +57,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 border-t border-gray-600 pt-6 text-center text-sm text-gray-400">
-          <p>&copy; {new Date().getFullYear()} D.R S.r.l.s. Tutti i diritti riservati. P.IVA </p>
+          <p>&copy; {new Date().getFullYear()} D.R S.r.l.s. Tutti i diritti riservati. P.IVA 04 </p>
         </div>
       </Container>
     </footer>

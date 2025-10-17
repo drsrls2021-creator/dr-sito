@@ -14,8 +14,8 @@ const projectsData = [
     title: 'Santa Maria Capua Vetere', 
     category: 'Finestre PVC', 
     images: [
-      '/portfolio/Santa_Maria_Capuavetere.webp', // Nome esatto dall'immagine
-      '/portfolio/santamariacapuavetere2.webp',   // Nome esatto dall'immagine
+      '/Santa_Maria_Capuavetere.webp', // Nome esatto dall'immagine
+      '/santamariacapuavetere2.webp',   // Nome esatto dall'immagine
     ] 
   },
   { 
@@ -23,12 +23,12 @@ const projectsData = [
     title: 'Scuola Frignano (CE)', 
     category: 'Finestre PVC', 
     images: [
-      '/portfolio/scuolamedia1.webp',
-      '/portfolio/scuolamedia2.webp',
-      '/portfolio/scuolamedia3.webp',
-      '/portfolio/scuolamedia4.webp',
-      '/portfolio/scuolamedia5.webp',
-      '/portfolio/scuolamedia6.webp',
+      '/scuolamedia1.webp',
+      '/scuolamedia2.webp',
+      '/scuolamedia3.webp',
+      '/scuolamedia4.webp',
+      '/scuolamedia5.webp',
+      '/scuolamedia6.webp',
     ] 
   },
   { 
@@ -36,10 +36,10 @@ const projectsData = [
     title: 'Portoncini blindati', 
     category: 'Portoncini blindati', 
     images: [
-      '/portfolio/portoncinoblindato1.webp',
-      '/portfolio/portoncinoblindato2.webp',
-      '/portfolio/portoncinoblindato3.webp',
-      '/portfolio/portoncinoblindato4.webp',
+      '/portoncinoblindato1.webp',
+      '/portoncinoblindato2.webp',
+      '/portoncinoblindato3.webp',
+      '/portoncinoblindato4.webp',
     ] 
   },
   { 
@@ -47,8 +47,8 @@ const projectsData = [
     title: 'Persiane di varie abitazioni', 
     category: 'Persiane in alluminio', 
     images: [
-      '/portfolio/persiane1.webp',
-      '/portfolio/persiane2.webp',
+      '/persiane1.webp',
+      '/persiane2.webp',
     ] 
   },
   { 
@@ -56,7 +56,7 @@ const projectsData = [
     title: 'Capannone Industriale Parete (CE)', 
     category: 'Vetrate', 
     images: [
-      '/portfolio/parete1.webp',
+      '/parete1.webp',
     ]
   },   
   { 
@@ -64,7 +64,7 @@ const projectsData = [
     title: 'Condomini Residenziali', 
     category: 'Finestre PVC', 
     images: [
-      '/portfolio/variepvc1.webp',
+      '/variepvc1.webp',
     ] 
   },
 ];

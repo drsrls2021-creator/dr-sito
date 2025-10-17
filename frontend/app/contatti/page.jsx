@@ -1,91 +1,233 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
+import PageHeader from '../../components/shared/PageHeader';
+import Container from '../../components/ui/Container';
 
 export default function ContattiPage() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [loading, setLoading] = useState(false);
-  const [response, setResponse] = useState(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+  const [status, setStatus] = useState({ type: '', message: '' });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    if (status.message) setStatus({ type: '', message: '' });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    setResponse(null);
+    
+    // Validazione lato client
+    if (!formData.name.trim()) {
+      setStatus({ type: 'error', message: 'Il nome è obbligatorio.' });
+      return;
+    }
+    
+    if (!formData.email.trim()) {
+      setStatus({ type: 'error', message: 'L\'email è obbligatoria.' });
+      return;
+    }
+    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setStatus({ type: 'error', message: 'Inserisci un\'email valida.' });
+      return;
+    }
+    
+    if (!formData.phone.trim()) {
+      setStatus({ type: 'error', message: 'Il numero di telefono è obbligatorio.' });
+      return;
+    }
+    
+    const phoneRegex = /^[0-9\s\+\-\(\)]{8,}$/;
+    if (!phoneRegex.test(formData.phone)) {
+      setStatus({ type: 'error', message: 'Inserisci un numero di telefono valido.' });
+      return;
+    }
+    
+    if (!formData.message.trim()) {
+      setStatus({ type: 'error', message: 'Il messaggio è obbligatorio.' });
+      return;
+    }
+
+    setIsLoading(true);
 
     try {
-      const res = await fetch("/api/contatti", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+      const response = await fetch('/api/contatti', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
       });
 
-      const data = await res.json();
-      setResponse(data.message || data.error);
-    } catch (err) {
-      setResponse("Errore durante l'invio del messaggio.");
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus({ type: 'success', message: 'Messaggio inviato con successo! Ti risponderemo al più presto.' });
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      } else {
+        setStatus({ type: 'error', message: data.error || 'Errore durante l\'invio del messaggio.' });
+      }
+    } catch (error) {
+      setStatus({ type: 'error', message: 'Errore di connessione. Riprova più tardi.' });
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
   };
 
   return (
-    <section className="py-16 px-6 max-w-2xl mx-auto">
-      <h1 className="text-4xl font-bold text-primary mb-6 text-center">Contattaci</h1>
-      <p className="text-gray-700 text-center mb-10">
-        Compila il modulo qui sotto e ti risponderemo al più presto.
-      </p>
+    <>
+      <PageHeader
+        title="Contattaci"
+        subtitle="Compila il modulo qui sotto e ti risponderemo al più presto."
+      />
+      
+      <section className="py-16">
+        <Container>
+          <div className="max-w-2xl mx-auto">
+            <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-8 space-y-6">
+              
+              {/* Nome */}
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  Nome <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Il tuo nome"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                  required
+                />
+              </div>
 
-      <form onSubmit={handleSubmit} className="space-y-4 bg-gray-50 p-8 rounded-2xl shadow-md">
-        <input
-          type="text"
-          name="name"
-          placeholder="Nome"
-          value={form.name}
-          onChange={handleChange}
-          className="w-full border border-gray-300 rounded-lg p-3"
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={form.email}
-          onChange={handleChange}
-          className="w-full border border-gray-300 rounded-lg p-3"
-          required
-        />
-        <textarea
-          name="message"
-          placeholder="Messaggio"
-          rows="5"
-          value={form.message}
-          onChange={handleChange}
-          className="w-full border border-gray-300 rounded-lg p-3"
-          required
-        ></textarea>
+              {/* Email */}
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  Email <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="tua@email.com"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                  required
+                />
+              </div>
 
-        <button
-          type="submit"
-          disabled={loading}
-          className="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
-        >
-          {loading ? "Invio in corso..." : "Invia messaggio"}
-        </button>
-      </form>
+              {/* Telefono */}
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                  Telefono <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="+39 123 456 7890"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                  required
+                />
+              </div>
 
-      {response && (
-        <p
-          className={`mt-6 text-center font-medium ${
-            response.includes("successo") ? "text-green-600" : "text-red-600"
-          }`}
-        >
-          {response}
-        </p>
-      )}
-    </section>
+              {/* Messaggio */}
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  Messaggio <span className="text-red-500">*</span>
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Descrivi la tua richiesta..."
+                  rows="6"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none"
+                  required
+                ></textarea>
+              </div>
+
+              {/* Messaggio di stato */}
+              {status.message && (
+                <div className={`p-4 rounded-lg ${
+                  status.type === 'success' 
+                    ? 'bg-green-50 text-green-800 border border-green-200' 
+                    : 'bg-red-50 text-red-800 border border-red-200'
+                }`}>
+                  {status.message}
+                </div>
+              )}
+
+              {/* Pulsante Invio */}
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="w-full bg-primary text-white font-semibold py-3 px-6 rounded-lg hover:bg-primary-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isLoading ? 'Invio in corso...' : 'Invia messaggio'}
+              </button>
+
+              {/* Note */}
+              <p className="text-sm text-gray-500 text-center">
+                <span className="text-red-500">*</span> Tutti i campi sono obbligatori
+              </p>
+            </form>
+
+            {/* Info Contatti */}
+            <div className="mt-12 grid md:grid-cols-3 gap-6">
+              <div className="bg-gray-50 p-6 rounded-lg text-center">
+                <div className="text-primary text-3xl mb-3">📍</div>
+                <h3 className="font-semibold text-gray-800 mb-2">Indirizzo</h3>
+                <p className="text-gray-600 text-sm">
+                  Via Consortile Savone, 1<br />
+                  81034 Mondragone (CE)
+                </p>
+              </div>
+              
+              <div className="bg-gray-50 p-6 rounded-lg text-center">
+                <div className="text-primary text-3xl mb-3">✉️</div>
+                <h3 className="font-semibold text-gray-800 mb-2">Email</h3>
+                <a 
+                  href="mailto:drsrls2021@gmail.com" 
+                  className="text-gray-600 text-sm hover:text-primary transition-colors"
+                >
+                  drsrls2021@gmail.com
+                </a>
+              </div>
+              
+              <div className="bg-gray-50 p-6 rounded-lg text-center">
+                <div className="text-primary text-3xl mb-3">📞</div>
+                <h3 className="font-semibold text-gray-800 mb-2">Contatti</h3>
+                <div className="space-y-1">
+                  <p className="text-gray-600 text-sm">
+                    <a href="tel:0823776453" className="hover:text-primary transition-colors">
+                      Tel. 0823.776453
+                    </a>
+                  </p>
+                  <p className="text-gray-600 text-sm">
+                    <a href="tel:3938799433" className="hover:text-primary transition-colors">
+                      Cell. 393.8799433
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+    </>
   );
 }
