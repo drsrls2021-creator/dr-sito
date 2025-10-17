@@ -13,7 +13,8 @@ app = FastAPI(
 origins = [
     "http://localhost:3000",                  # Per lo sviluppo locale
     "https://www.infodrsrls.com",             # Il tuo dominio principale
-    "https://dr-sito.onrender.com"            # Il sottodominio del frontend su Render
+    "https://dr-sito.onrender.com",    # Il sottodominio del frontend su Render
+    "https://dr-sito-1.onrender.com/"  # Un altro possibile URL di backend su Render                                                   
 ]
 
 
