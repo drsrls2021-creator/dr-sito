@@ -34,8 +34,11 @@ export default function ContattiPage() {
     setIsLoading(true);
 
     try {
-      // --- QUESTA È LA RIGA CHE ABBIAMO CORRETTO ---
-      const response = await fetch('http://localhost:8000/api/contact', {
+      // --- MODIFICA FONDAMENTALE ---
+      // Sceglie l'URL giusto in base all'ambiente (sviluppo locale o produzione su Render)
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+      
+      const response = await fetch(`${apiUrl}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
@@ -50,6 +53,7 @@ export default function ContattiPage() {
         setStatus({ type: 'error', message: data.detail || 'Errore durante l\'invio del messaggio.' });
       }
     } catch (error) {
+      console.error('Fetch Error:', error);
       setStatus({ type: 'error', message: 'Errore di connessione. Assicurati che il server backend sia attivo.' });
     } finally {
       setIsLoading(false);
