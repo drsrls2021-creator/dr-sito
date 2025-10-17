@@ -7,7 +7,7 @@ frontend/.env*
 frontend/.vercel
 
 # Backend (Python/FastAPI)
-
+backend/venv
 backend/__pycache__
 backend/*.pyc
 backend/.env
