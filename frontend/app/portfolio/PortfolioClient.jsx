@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { FiX, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
-// Componente per la card singola del progetto
+// ✅ Card singola del progetto
 function ProjectCard({ project, onClick }) {
   return (
     <div 
@@ -13,9 +13,10 @@ function ProjectCard({ project, onClick }) {
     >
       <div className="relative w-full h-60">
         <Image 
-          src={project.images[0]} // Mostra solo la prima immagine come anteprima
+          src={project.images[0]} 
           alt={project.title} 
           fill
+          loading="lazy"
           style={{ objectFit: 'cover' }}
           className="group-hover:scale-105 transition-transform duration-300" 
         />
@@ -28,12 +29,12 @@ function ProjectCard({ project, onClick }) {
   );
 }
 
-// Componente per la galleria a schermo intero (Lightbox)
+// ✅ Lightbox a schermo intero
 function Lightbox({ images, onClose, initialIndex = 0 }) {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
 
   const handlePrev = (e) => {
-    e.stopPropagation(); // Evita che il click si propaghi e chiuda la lightbox
+    e.stopPropagation();
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
 
@@ -44,58 +45,76 @@ function Lightbox({ images, onClose, initialIndex = 0 }) {
 
   return (
     <div 
-      className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center"
+      className="fixed inset-0 bg-black/90 z-50 flex flex-col items-center justify-center"
       onClick={onClose}
     >
-      {/* Pulsante Chiudi */}
-      <button className="absolute top-4 right-4 text-white text-4xl" onClick={onClose}>
+      {/* Chiudi */}
+      <button 
+        className="absolute top-6 right-6 text-white text-4xl hover:text-primary transition"
+        onClick={(e) => {
+          e.stopPropagation();
+          onClose();
+        }}
+      >
         <FiX />
       </button>
 
-      {/* Pulsante Precedente */}
-      {images.length > 1 && (
-        <button 
-          className="absolute left-4 text-white text-4xl p-2 bg-black bg-opacity-50 rounded-full" 
-          onClick={handlePrev}
-        >
-          <FiChevronLeft />
-        </button>
-      )}
-
-      {/* Immagine Principale */}
-      <div className="relative w-11/12 h-5/6 md:w-3/4 md:h-3/4" onClick={(e) => e.stopPropagation()}>
+      {/* Contenitore immagine */}
+      <div 
+        className="relative w-11/12 h-[75vh] max-w-5xl flex items-center justify-center"
+        onClick={(e) => e.stopPropagation()}
+      >
         <Image 
           src={images[currentIndex]} 
           alt={`Immagine ${currentIndex + 1}`}
           fill
+          loading="lazy"
           style={{ objectFit: 'contain' }}
+          className="rounded-lg transition-transform duration-500"
         />
+
+        {/* Freccia sinistra */}
+        {images.length > 1 && (
+          <button 
+            className="absolute left-4 md:left-8 text-white text-4xl p-2 bg-black/50 rounded-full hover:bg-primary transition"
+            onClick={handlePrev}
+          >
+            <FiChevronLeft />
+          </button>
+        )}
+
+        {/* Freccia destra */}
+        {images.length > 1 && (
+          <button 
+            className="absolute right-4 md:right-8 text-white text-4xl p-2 bg-black/50 rounded-full hover:bg-primary transition"
+            onClick={handleNext}
+          >
+            <FiChevronRight />
+          </button>
+        )}
       </div>
 
-      {/* Pulsante Successivo */}
+      {/* Indicatori sotto */}
       {images.length > 1 && (
-        <button 
-          className="absolute right-4 text-white text-4xl p-2 bg-black bg-opacity-50 rounded-full" 
-          onClick={handleNext}
-        >
-          <FiChevronRight />
-        </button>
+        <div className="mt-4 flex space-x-2">
+          {images.map((_, i) => (
+            <div
+              key={i}
+              className={`w-3 h-3 rounded-full ${i === currentIndex ? 'bg-primary' : 'bg-gray-400'}`}
+            ></div>
+          ))}
+        </div>
       )}
     </div>
   );
 }
 
-// Componente principale che gestisce lo stato
+// ✅ Componente principale
 export default function PortfolioClient({ projects }) {
   const [lightboxImages, setLightboxImages] = useState(null);
 
-  const openLightbox = (images) => {
-    setLightboxImages(images);
-  };
-
-  const closeLightbox = () => {
-    setLightboxImages(null);
-  };
+  const openLightbox = (images) => setLightboxImages(images);
+  const closeLightbox = () => setLightboxImages(null);
 
   return (
     <>
